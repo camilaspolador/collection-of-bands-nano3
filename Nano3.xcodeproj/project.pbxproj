@@ -11,6 +11,12 @@
 		569171AD2AC3067D008BE53F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569171AC2AC3067D008BE53F /* ContentView.swift */; };
 		569171AF2AC3067E008BE53F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569171AE2AC3067E008BE53F /* Assets.xcassets */; };
 		569171B22AC3067E008BE53F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569171B12AC3067E008BE53F /* Preview Assets.xcassets */; };
+		569171B92AC307A9008BE53F /* CardBandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569171B82AC307A9008BE53F /* CardBandView.swift */; };
+		569171BC2AC30CE1008BE53F /* MainBandsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569171BB2AC30CE1008BE53F /* MainBandsView.swift */; };
+		569171BE2AC3161E008BE53F /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569171BD2AC3161E008BE53F /* RegisterView.swift */; };
+		569171C02AC32A3F008BE53F /* BandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569171BF2AC32A3F008BE53F /* BandView.swift */; };
+		569171C22AC4494C008BE53F /* BandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569171C12AC4494C008BE53F /* BandModel.swift */; };
+		569171C52AC4536B008BE53F /* StarsHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569171C42AC4536B008BE53F /* StarsHStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		569171AC2AC3067D008BE53F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		569171AE2AC3067E008BE53F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		569171B12AC3067E008BE53F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		569171B82AC307A9008BE53F /* CardBandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBandView.swift; sourceTree = "<group>"; };
+		569171BB2AC30CE1008BE53F /* MainBandsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBandsView.swift; sourceTree = "<group>"; };
+		569171BD2AC3161E008BE53F /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		569171BF2AC32A3F008BE53F /* BandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandView.swift; sourceTree = "<group>"; };
+		569171C12AC4494C008BE53F /* BandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandModel.swift; sourceTree = "<group>"; };
+		569171C42AC4536B008BE53F /* StarsHStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsHStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +63,11 @@
 		569171A92AC3067D008BE53F /* Nano3 */ = {
 			isa = PBXGroup;
 			children = (
+				569171C32AC45359008BE53F /* Components */,
 				569171AA2AC3067D008BE53F /* Nano3App.swift */,
 				569171AC2AC3067D008BE53F /* ContentView.swift */,
+				569171C12AC4494C008BE53F /* BandModel.swift */,
+				569171BA2AC307B6008BE53F /* Views */,
 				569171AE2AC3067E008BE53F /* Assets.xcassets */,
 				569171B02AC3067E008BE53F /* Preview Content */,
 			);
@@ -65,6 +80,25 @@
 				569171B12AC3067E008BE53F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		569171BA2AC307B6008BE53F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				569171B82AC307A9008BE53F /* CardBandView.swift */,
+				569171BF2AC32A3F008BE53F /* BandView.swift */,
+				569171BB2AC30CE1008BE53F /* MainBandsView.swift */,
+				569171BD2AC3161E008BE53F /* RegisterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		569171C32AC45359008BE53F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				569171C42AC4536B008BE53F /* StarsHStackView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +171,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				569171C22AC4494C008BE53F /* BandModel.swift in Sources */,
 				569171AD2AC3067D008BE53F /* ContentView.swift in Sources */,
+				569171BE2AC3161E008BE53F /* RegisterView.swift in Sources */,
+				569171B92AC307A9008BE53F /* CardBandView.swift in Sources */,
+				569171BC2AC30CE1008BE53F /* MainBandsView.swift in Sources */,
 				569171AB2AC3067D008BE53F /* Nano3App.swift in Sources */,
+				569171C52AC4536B008BE53F /* StarsHStackView.swift in Sources */,
+				569171C02AC32A3F008BE53F /* BandView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
