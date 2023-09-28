@@ -21,3 +21,4 @@ struct BandModel: Identifiable, Hashable {
     var observations: String
     var openingOfGates: String
 }
+

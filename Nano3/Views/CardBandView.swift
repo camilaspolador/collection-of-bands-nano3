@@ -17,6 +17,8 @@ struct CardBandsView: View {
             VStack(alignment: .leading, spacing: 8) {
                 titleWithCheck
                 StarsHStackView(starsCount: data.stars)
+                    .font(.callout)
+                    .foregroundColor(.pink)
                 HStack {
                     date
                     Text("•")

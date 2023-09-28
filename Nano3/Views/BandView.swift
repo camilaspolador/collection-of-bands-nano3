@@ -20,6 +20,8 @@ struct BandView: View {
                     .bold()
                 
                 StarsHStackView(starsCount: data.stars)
+                    .font(.headline)
+                    .foregroundColor(.pink)
                 
                 Text(data.observations)
                 HStack {

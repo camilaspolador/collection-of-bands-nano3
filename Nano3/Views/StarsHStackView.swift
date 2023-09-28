@@ -11,14 +11,11 @@ struct StarsHStackView: View {
     let starsCount: Int
     
     var body: some View {
-        HStack(spacing: 2) {
+        HStack(spacing: 1) {
             ForEach(1...5, id: \.self) { i in
                 Image(systemName: i <= starsCount ? "star.fill" : "star")
             }
-            
         }
-        .font(.callout)
-        .foregroundColor(.pink)
     }
 }
 

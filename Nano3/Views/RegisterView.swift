@@ -9,10 +9,9 @@ import SwiftUI
 
 struct RegisterView: View {
     struct Spot: Identifiable, Hashable {
-        let name: String
         let id = UUID()
+        let name: String
     }
-    
     
     private var spot = [
         Spot(name: "Track"),
@@ -24,55 +23,28 @@ struct RegisterView: View {
     ]
     
     @State private var multiSelection = Set<UUID>()
-    @State private var username: String = ""
-    @State private var toggleOn: Bool = true
     
     var body: some View {
-        VStack {
+        Form {
+            TextFieldView()
             
-            Form {
-                HStack {
-                    Image(systemName: "plus")
-                        .foregroundColor(.white)
-                        .frame(minWidth: 30, minHeight: 30)
-                        .background(.blue)
-                        .cornerRadius(7)
-                    
-                    TextField(text: $username) {
-                        Image(systemName: "plus")
-                        Text("Artist name")
-                        
-                    }
+            StepperView()
+            
+            ToggleView()
+            
+            Section {
+                    List(spot, selection: $multiSelection) { spot in
+                        Text(spot.name)
                 }
-                
+                    .toolbar { EditButton() }
+            } header: {
+                Text("Location at the concert")
             }
             
-
-            List {
-                Toggle(isOn: $toggleOn) {
-                    HStack {
-                        Image(systemName: "plus")
-                            .foregroundColor(.white)
-                            .frame(minWidth: 30, minHeight: 30)
-                            .background(.blue)
-                            .cornerRadius(7)
-                        Text("Main attraction")
-                    }
-                }
-                
-                
-            }
-            NavigationStack {
-                
-                List(spot, selection: $multiSelection) { ocean in
-                    Text(ocean.name)
-                    
-                }
-                .toolbar { EditButton() }
-            }
         }
     }
 }
+
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
@@ -80,3 +52,32 @@ struct RegisterView_Previews: PreviewProvider {
         RegisterView()
     }
 }
+
+
+
+
+
+//                VStack {
+//
+//                    List {
+//                        Toggle(isOn: $toggleOn) {
+//                            HStack {
+//                                Image(systemName: "plus")
+//                                    .foregroundColor(.white)
+//                                    .frame(minWidth: 30, minHeight: 30)
+//                                    .background(.blue)
+//                                    .cornerRadius(7)
+//                                Text("Main attraction")
+//                            }
+//                        }
+//                    }
+//                }
+//
+//                NavigationStack {
+//
+//                    List(spot, selection: $multiSelection) { ocean in
+//                        Text(ocean.name)
+//
+//                    }
+//                    .toolbar { EditButton() }
+//                }

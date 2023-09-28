@@ -16,7 +16,6 @@ struct MainBandsView: View {
         BandModel(title: "Metallica", isChecked: true, stars: 4, date: "25/05/2022", location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: "Track", mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: "17:00"),
         
         BandModel(title: "Red Hot Chilli Peppers", isChecked: true, stars: 4, date: "25/05/2022", location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: "Track", mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: "17:00")
-        
     ]
     
     var body: some View {
@@ -33,11 +32,15 @@ struct MainBandsView: View {
         .navigationTitle("My concerts")
         .searchable(text: $searchText)
         .toolbar {
-            HStack {
-                Text("Add new")
-                Image(systemName: "plus")
+            NavigationLink {
+                RegisterView()
+            } label: {
+                HStack {
+                    Text("Add new")
+                    Image(systemName: "plus")
+                }
+                .foregroundColor(.blue)
             }
-            .foregroundColor(.blue)
         }
     }
 }
