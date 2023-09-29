@@ -8,26 +8,19 @@
 import SwiftUI
 
 struct MainBandsView: View {
+    @EnvironmentObject private var bandsManager: BandsManager
+    
     @State var showingSheet: Bool = false
     @State var searchText: String = ""
-    @State var currentBand: BandModel = BandModel(title: "Metallica", isChecked: true, stars: 4, date: "25/05/2022", location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: "Track", mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: "17:00")
     
-    var cards: [BandModel] = [
-        BandModel(title: "Metallica", isChecked: true, stars: 4, date: "25/05/2022", location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: "Track", mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: "17:00"),
-        
-        BandModel(title: "Red Hot Chilli Peppers", isChecked: true, stars: 4, date: "25/05/2022", location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: "Track", mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: "17:00")
-    ]
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            BandsListView(searchText: searchText, cards: cards, callback: { tappedCard in
-                currentBand = tappedCard
+            BandsListView(searchText: searchText, cards: bandsManager.bands, callback: { tappedCard in
+                bandsManager.currentBand = tappedCard
                 showingSheet.toggle()
             })
             .padding(16)
-        }
-        .sheet(isPresented: $showingSheet) {
-            BandView(data: currentBand)
         }
         .navigationTitle("My concerts")
         .searchable(text: $searchText)
@@ -42,6 +35,10 @@ struct MainBandsView: View {
                 .foregroundColor(.blue)
             }
         }
+        .sheet(isPresented: $showingSheet) {
+            BandView(data: bandsManager.currentBand)
+        }
+
     }
 }
 
@@ -50,6 +47,7 @@ struct MainBandsView_Previews: PreviewProvider {
         NavigationStack {
             MainBandsView()
         }
+        .environmentObject(BandsManager())
     }
 }
 

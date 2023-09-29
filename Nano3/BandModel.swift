@@ -12,13 +12,13 @@ struct BandModel: Identifiable, Hashable {
     var title: String
     var isChecked: Bool
     var stars: Int
-    var date: String
+    var date: Date
     var location: String
     var withWho: String
     var ticketPrice: String
-    var spot: String
+    var spot: PickerSpotView.Spot
     var mainAttraction: String
     var observations: String
-    var openingOfGates: String
+    var openingOfGates: Date
 }
 

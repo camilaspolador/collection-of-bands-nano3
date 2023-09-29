@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ContentView: View {
+    @StateObject private var bandsManager = BandsManager()
+    
     var body: some View {
         NavigationStack {
             MainBandsView()
         }
+        .environmentObject(bandsManager)
     }
 }
 

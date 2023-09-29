@@ -13,11 +13,10 @@ struct BandView: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 16) {
                 Text(data.title)
-                    .font(.largeTitle)
-                    .bold()
+                    .font(.custom("Bonema", size: 34))
                 
                 StarsHStackView(starsCount: data.stars)
                     .font(.headline)
@@ -25,7 +24,7 @@ struct BandView: View {
                 
                 Text(data.observations)
                 HStack {
-                    Text(data.date)
+                    Text(data.date.formatted())
                         .padding(.horizontal, 12)
                         .padding(.vertical, 5)
                         .background(.gray)
@@ -57,7 +56,7 @@ struct BandView: View {
                 }
                 HStack {
                     
-                    Text(data.spot)
+                    Text(data.spot.rawValue)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 5)
                         .background(.gray)
@@ -78,11 +77,12 @@ struct BandView: View {
                     .cornerRadius(23)
                     .ignoresSafeArea()
                 
+                if data.date <= Date.now {
                     Image(systemName: data.isChecked ? "checkmark.seal.fill" : "")
                         .foregroundColor(.green)
                         .font(.title)
                         .padding(16)
-                
+                }
             }
             
         }
@@ -92,6 +92,6 @@ struct BandView: View {
 
 struct BandView_Previews: PreviewProvider {
     static var previews: some View {
-        BandView(data: BandModel(title: "Metallica", isChecked: true, stars: 4, date: "25/05/2022", location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: "Track", mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: "17:00"))
+        BandView(data: BandModel(title: "Metallica", isChecked: true, stars: 4, date: Date.now, location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: PickerSpotView.Spot.box, mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: Date.now))
     }
 }

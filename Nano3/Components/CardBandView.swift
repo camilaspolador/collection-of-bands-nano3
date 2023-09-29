@@ -26,11 +26,12 @@ struct CardBandsView: View {
                 }
                 location
             }
-            .padding(16)
+            .padding(.vertical, 16)
+            .padding(.horizontal, 8)
             
         }
         .frame(maxHeight: 131)
-        .background(.thinMaterial)
+        .background(Color("Clear"))
         .cornerRadius(23)
     }
     
@@ -40,24 +41,24 @@ struct CardBandsView: View {
                 .frame(maxWidth: . infinity, alignment: .leading)
                 .foregroundColor(.black)
             
-            if data.isChecked {
+            if data.date <= Date.now {
                 Image(systemName: "checkmark.seal.fill")
                     .foregroundColor(.green)
             }
         }
-        .font(.headline)
+        .font(.custom("Bonema", size: 18))
     }
     
     
     
     var date: some View {
-        Text(data.date)
+        Text(data.date.formatted())
             .font(.subheadline)
             .foregroundColor(.black)
     }
     
     var openingOfGates: some View {
-        Text(data.openingOfGates)
+        Text(data.openingOfGates.formatted())
             .font(.subheadline)
             .foregroundColor(.black)
     }
@@ -71,6 +72,6 @@ struct CardBandsView: View {
 
 struct CardBandsView_Previews: PreviewProvider {
     static var previews: some View {
-        CardBandsView(data: BandModel(title: "Metallica", isChecked: true, stars: 4, date: "25/05/2022", location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: "Track", mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: "17:00"))
+        CardBandsView(data: BandModel(title: "Metallica", isChecked: true, stars: 4, date: Date.now, location: "Estádio Couto Pereira", withWho: "Carol and Gabriel", ticketPrice: "R$ 350", spot: PickerSpotView.Spot.box, mainAttraction: "Main attraction", observations: "Lorem ipsum dolor sit amet. Et similique veniam aut impedit minima sit ducimus excepturi et ipsa porro est delectus quae quo quia amet.", openingOfGates: Date.now))
     }
 }

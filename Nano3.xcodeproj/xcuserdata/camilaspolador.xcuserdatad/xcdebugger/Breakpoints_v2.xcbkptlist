@@ -18,6 +18,38 @@
             endingLineNumber = "28"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "96B55A7E-167C-4463-A47F-3A80B85DA42F - 1ab10f26f5a2ed05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Nano3.RegisterView.body.getter : some"
+                  moduleName = "Nano3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/camilaspolador/Desktop/Apple%20Developer%20Academy/10.Nano3/Nano3/Nano3/Views/RegisterView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "96B55A7E-167C-4463-A47F-3A80B85DA42F - 2ba8c96cae1c168c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Nano3.TextFieldView, Nano3.StepperView, Nano3.ToggleView, Nano3.PickerSpotView, Nano3.ObservationFieldView)&gt; in Nano3.RegisterView.body.getter : some"
+                  moduleName = "Nano3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/camilaspolador/Desktop/Apple%20Developer%20Academy/10.Nano3/Nano3/Nano3/Views/RegisterView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "504">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

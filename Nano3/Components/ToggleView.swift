@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ToggleView: View {
     
-    @State private var toggleOnMainAttraction: Bool = false
-    @State private var toggleOnFestival: Bool = false
+    @Binding var toggleOnMainAttraction: Bool
+    @Binding var toggleOnFestival: Bool
     
     var body: some View {
         Section {
@@ -31,7 +31,7 @@ struct ToggleView: View {
 struct ToggleView_Previews: PreviewProvider {
     static var previews: some View {
         Form {
-            ToggleView()
+            ToggleView(toggleOnMainAttraction: .constant(false), toggleOnFestival: .constant(false))
         }
     }
 }

@@ -8,76 +8,55 @@
 import SwiftUI
 
 struct RegisterView: View {
-    struct Spot: Identifiable, Hashable {
-        let id = UUID()
-        let name: String
-    }
+
+    @EnvironmentObject private var bandsManager: BandsManager
+    @Environment(\.dismiss) private var dismiss
     
-    private var spot = [
-        Spot(name: "Track"),
-        Spot(name: "Premium track"),
-        Spot(name: "Box"),
-        Spot(name: "Grandstand"),
-        Spot(name: "Festival"),
-        Spot(name: "Other")
-    ]
+    @State var artistName: String = ""
+    @State var ticketPrice: String = ""
+    @State var withWho: String = ""
+    @State var location: String = ""
+    @State var eventDate = Date()
+    @State var openingOfTheGates = Date()
+    @State var observations: String = ""
+    @State var selectedSpot: PickerSpotView.Spot = .track
     
-    @State private var multiSelection = Set<UUID>()
+    @State var toggleOnMainAttraction: Bool = false
+    @State var toggleOnFestival: Bool = false
     
     var body: some View {
         Form {
-            TextFieldView()
+            TextFieldView(artistName: $artistName, ticketPrice: $ticketPrice, withWho: $withWho, location: $location, eventDate: $eventDate, openingOfTheGates: $openingOfTheGates)
             
             StepperView()
             
-            ToggleView()
+            ToggleView(toggleOnMainAttraction: $toggleOnMainAttraction, toggleOnFestival: $toggleOnFestival)
             
-            Section {
-                    List(spot, selection: $multiSelection) { spot in
-                        Text(spot.name)
+            PickerSpotView(selectedSpot: $selectedSpot)
+            
+            ObservationFieldView(observations: $observations)
+            
+        }
+        .navigationTitle("New concert")
+        .toolbar {
+            Button {
+                bandsManager.addBand(BandModel(title: artistName, isChecked: true, stars: 2, date: eventDate, location: location, withWho: withWho, ticketPrice: ticketPrice, spot: selectedSpot, mainAttraction: toggleOnMainAttraction ? "Main attraction" : "opening band", observations: observations, openingOfGates: openingOfTheGates))
+                dismiss()
+            } label: {
+                HStack {
+                    Text("Save")
                 }
-                    .toolbar { EditButton() }
-            } header: {
-                Text("Location at the concert")
+                .foregroundColor(.blue)
             }
-            
         }
     }
 }
 
-
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        RegisterView()
+        NavigationStack {
+            RegisterView()
+        }
+        .environmentObject(BandsManager())
     }
 }
-
-
-
-
-
-//                VStack {
-//
-//                    List {
-//                        Toggle(isOn: $toggleOn) {
-//                            HStack {
-//                                Image(systemName: "plus")
-//                                    .foregroundColor(.white)
-//                                    .frame(minWidth: 30, minHeight: 30)
-//                                    .background(.blue)
-//                                    .cornerRadius(7)
-//                                Text("Main attraction")
-//                            }
-//                        }
-//                    }
-//                }
-//
-//                NavigationStack {
-//
-//                    List(spot, selection: $multiSelection) { ocean in
-//                        Text(ocean.name)
-//
-//                    }
-//                    .toolbar { EditButton() }
-//                }
